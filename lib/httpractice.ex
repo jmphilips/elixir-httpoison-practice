@@ -6,7 +6,16 @@ defmodule Httpractice do
         {:ok, %HTTPoison.Response{status_code: 200, body: body}} -> 
             Floki.find(body, ".content, p") 
             |> Floki.text
-            |> IO.puts
+            |> count
         end
     end
+
+    def count(string) do
+        String.strip(string)
+        |> String.downcase
+        |> String.split(" ")
+    end
+
+
+
 end
